@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CategoryTabs } from "@/components/ui/CategoryTabs";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { menu } from "@/data/menu";
@@ -31,30 +32,11 @@ export function Carta() {
   return (
     <section id="carta" className="py-20 sm:py-28">
       <Container maxW="max-w-7xl">
-        <div className="mb-10 flex items-end justify-between gap-6 sm:mb-14">
-          <div className="flex max-w-2xl flex-col gap-3">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-brand-teal/40 bg-brand-teal/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-brand-teal">
-              Carta interactiva
-            </span>
-            <h2 className="text-balance font-display text-3xl font-extrabold leading-[1.05] tracking-tight sm:text-4xl">
-              Para acompañar la partida
-            </h2>
-            <p className="max-w-xl text-balance text-base text-ink-dim">
-              Elegí una categoría. Los precios se actualizan directo desde nuestra carta.
-            </p>
-          </div>
-
-          <div className="hidden shrink-0 flex-col items-end text-right lg:flex">
-            <span className="font-display text-7xl font-extrabold leading-none text-line">
-              {menu.length}
-            </span>
-            <span className="mt-1 font-mono text-xs uppercase tracking-widest text-ink-faint">
-              categorías,
-              <br />
-              un solo lugar
-            </span>
-          </div>
-        </div>
+        <SectionHeading
+          eyebrow="Carta"
+          title="Para acompañar la partida"
+          description={`Elegí una categoría — ${menu.length} en total, de la cerveza al postre.`}
+        />
 
         <CategoryTabs categories={menu} activeSlug={activeSlug} onSelect={setActiveSlug} />
 
@@ -67,20 +49,22 @@ export function Carta() {
             groups.map((group) => (
               <div key={group.label || "default"}>
                 {group.label ? (
-                  <h3 className="mb-4 font-mono text-xs uppercase tracking-widest text-brand-teal">
+                  <h3 className="mb-2 text-xs uppercase tracking-[0.2em] text-brand-teal">
                     {group.label}
                   </h3>
                 ) : null}
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid divide-y divide-line-soft sm:grid-cols-2 sm:gap-x-12 sm:divide-y-0">
                   {group.products.map((product) => (
-                    <ProductCard key={product.name} product={product} />
+                    <div key={product.name} className="border-line-soft sm:border-b">
+                      <ProductCard product={product} />
+                    </div>
                   ))}
                 </div>
               </div>
             ))
           ) : (
-            <div className="rounded-2xl border border-dashed border-line bg-surface/50 p-10 text-center">
-              <p className="font-display text-lg font-bold">Próximamente</p>
+            <div className="border-t border-line-soft py-10 text-center">
+              <p className="font-display text-lg font-semibold">Próximamente</p>
               <p className="mt-2 text-sm text-ink-dim">
                 Estamos cargando los productos de {activeCategory.name.toLowerCase()}.
               </p>

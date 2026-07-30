@@ -19,16 +19,13 @@ export function Cumpleanos() {
           {/* Columna editorial: título expresivo + imagen que invade el
               borde de la columna de al lado. */}
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-brand-violet/40 bg-brand-violet/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-violet-200">
+            <span className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-ink-dim">
               Cumpleaños y eventos
             </span>
 
-            <h2 className="mt-4 text-balance font-display text-4xl font-extrabold leading-[1.02] tracking-tight sm:text-5xl">
-              Cumpleaños que se{" "}
-              <span className="bg-linear-to-r from-brand-violet to-brand-teal bg-clip-text text-transparent">
-                recuerdan
-              </span>
-              , no solo se festejan
+            <h2 className="mt-4 text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
+              Cumpleaños que se <span className="text-brand-violet">recuerdan</span>, no solo se
+              festejan
             </h2>
 
             <p className="mt-5 max-w-sm text-balance text-ink-dim">
@@ -43,7 +40,7 @@ export function Cumpleanos() {
             </p>
 
             {hasPoolPhoto ? (
-              <div className="relative mt-10 hidden h-40 w-56 overflow-hidden rounded-2xl border border-line-soft lg:-mr-16 lg:block xl:h-48 xl:w-64">
+              <div className="relative mt-10 hidden h-40 w-56 overflow-hidden rounded-lg lg:-mr-16 lg:block xl:h-48 xl:w-64">
                 <Image
                   src="/images/pool.png"
                   alt=""
@@ -52,7 +49,6 @@ export function Cumpleanos() {
                   sizes="256px"
                   className="scale-125 object-cover object-left blur-[2px]"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-night-warm/80 via-transparent to-brand-violet/20" />
               </div>
             ) : null}
           </div>
@@ -70,10 +66,10 @@ export function Cumpleanos() {
                 </div>
 
                 <div>
-                  <span className="font-mono text-xs uppercase tracking-widest text-ink-faint">
+                  <span className="text-xs uppercase tracking-[0.2em] text-ink-faint">
                     {pkg.category} · {pkg.priceNote}
                   </span>
-                  <h3 className="mt-1 font-display text-2xl font-extrabold">{pkg.name}</h3>
+                  <h3 className="mt-1 font-display text-2xl font-bold">{pkg.name}</h3>
                   <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
                     {pkg.includes.map((item) => (
                       <li key={item} className="flex items-center gap-1.5 text-sm text-ink-dim">

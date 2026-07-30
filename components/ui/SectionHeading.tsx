@@ -13,10 +13,11 @@ export function SectionHeading({
 
   return (
     <div className={`mb-10 flex max-w-2xl flex-col gap-3 sm:mb-14 ${alignClasses}`}>
-      <span className="inline-flex w-fit items-center gap-2 rounded-full border border-brand-teal/40 bg-brand-teal/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-brand-teal">
+      <span className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-brand-teal">
+        <span aria-hidden className="h-1 w-1 rounded-full bg-brand-teal" />
         {eyebrow}
       </span>
-      <h2 className="text-balance font-display text-3xl font-extrabold leading-[1.05] tracking-tight sm:text-4xl">
+      <h2 className="text-balance font-display text-3xl font-bold leading-[1.05] tracking-tight sm:text-4xl">
         {title}
       </h2>
       {description ? (

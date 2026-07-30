@@ -26,7 +26,7 @@ export function Ubicacion() {
       <Container>
         <div className="flex flex-col gap-6 border-b border-line-soft pb-10 pt-10 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-ink-faint">Dirección</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-ink-faint">Dirección</p>
             <p className="mt-2 text-lg">{business.address.value}</p>
           </div>
           <div className="flex flex-wrap gap-3">

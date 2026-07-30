@@ -8,8 +8,8 @@ import { experiences } from "@/data/experiences";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 // Fotos reales de ambiente. La de pool tiene clientes en cuadro, por eso
-// se usa muy desenfocada y con overlay oscuro fuerte — ambiente, no
-// retrato. Se activan solas apenas existan los archivos.
+// se usa muy desenfocada — ambiente, no retrato. Se activan solas apenas
+// existan los archivos.
 const hasPistaPhoto = fs.existsSync(path.join(process.cwd(), "public/images/pista.png"));
 const hasPoolPhoto = fs.existsSync(path.join(process.cwd(), "public/images/pool.png"));
 
@@ -31,35 +31,26 @@ export function Experiencia() {
           {/* Tile grande: bowling. Es el corazón del negocio, así que ocupa
               el doble de espacio que el resto en vez de competir en un
               grid de tres columnas iguales. */}
-          <div className="group relative flex h-80 flex-col justify-end overflow-hidden rounded-2xl border border-line-soft p-7 lg:h-140 lg:w-[58%] lg:p-9">
+          <div className="relative flex h-80 flex-col justify-end overflow-hidden rounded-lg p-7 lg:h-140 lg:w-[58%] lg:p-9">
             {hasPistaPhoto ? (
               <Image
                 src="/images/pista.png"
                 alt="Pistas de bowling de Bowling Mitre"
                 fill
                 sizes="(min-width: 1024px) 58vw, 100vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover"
               />
             ) : (
-              <div className="absolute inset-0 bg-linear-to-br from-night-warm to-night-deep" />
+              <div className="absolute inset-0 bg-night-warm" />
             )}
-            <div className="absolute inset-0 bg-linear-to-t from-night-deep via-night-deep/60 to-transparent" />
-
-            <span
-              aria-hidden
-              className="pointer-events-none absolute right-4 top-2 select-none font-display text-[9rem] font-extrabold leading-none text-paper/10 lg:text-[13rem]"
-            >
-              4
-            </span>
+            <div className="absolute inset-0 bg-linear-to-t from-night-deep via-night-deep/50 to-transparent" />
 
             <div className="relative">
-              <span className="font-mono text-xs uppercase tracking-widest text-brand-teal">
-                {bowling.badge}
-              </span>
-              <h3 className="mt-2 font-display text-3xl font-extrabold lg:text-4xl">{bowling.name}</h3>
+              <span className="text-xs uppercase tracking-[0.2em] text-brand-teal">{bowling.badge}</span>
+              <h3 className="mt-2 font-display text-3xl font-bold lg:text-4xl">{bowling.name}</h3>
               <p className="mt-2 max-w-xs text-sm text-ink-dim">{bowling.tagline}</p>
               <div className="mt-5 flex flex-wrap items-center gap-4">
-                <span className="font-mono text-sm text-brand-amber">{bowling.priceLabel}</span>
+                <span className="text-sm text-brand-amber">{bowling.priceLabel}</span>
                 <Button
                   href={buildWhatsAppLink(bowling.whatsappMessage)}
                   target="_blank"
@@ -72,11 +63,11 @@ export function Experiencia() {
             </div>
           </div>
 
-          {/* Columna angosta: pool (con foto) + gastronomía (sin foto,
-              acento de madera) — dos tiles chicos que respiran distinto
-              del tile grande de al lado. */}
+          {/* Columna angosta: pool (con foto) + gastronomía (texto, sin
+              foto) — dos bloques chicos que respiran distinto del tile
+              grande de al lado. */}
           <div className="flex flex-col gap-5 lg:w-[42%]">
-            <div className="group relative flex h-64 flex-col justify-end overflow-hidden rounded-2xl border border-line-soft p-6 lg:h-67.5">
+            <div className="relative flex h-64 flex-col justify-end overflow-hidden rounded-lg p-6 lg:h-67.5">
               {hasPoolPhoto ? (
                 <Image
                   src="/images/pool.png"
@@ -84,27 +75,18 @@ export function Experiencia() {
                   aria-hidden
                   fill
                   sizes="(min-width: 1024px) 24vw, 100vw"
-                  className="object-cover object-bottom opacity-45 blur-sm"
+                  className="object-cover object-bottom opacity-70 blur-sm"
                 />
               ) : (
-                <div className="absolute inset-0 bg-linear-to-br from-night-warm to-night-deep" />
+                <div className="absolute inset-0 bg-night-warm" />
               )}
-              <div className="absolute inset-0 bg-linear-to-t from-surface via-surface/85 to-surface/40" />
-
-              <span
-                aria-hidden
-                className="pointer-events-none absolute right-3 top-0 select-none font-display text-[6.5rem] font-extrabold leading-none text-paper/10"
-              >
-                7
-              </span>
+              <div className="absolute inset-0 bg-linear-to-t from-surface via-surface/70 to-transparent" />
 
               <div className="relative">
-                <span className="font-mono text-xs uppercase tracking-widest text-brand-teal">
-                  {pool.badge}
-                </span>
-                <h3 className="mt-1 font-display text-xl font-extrabold">{pool.name}</h3>
+                <span className="text-xs uppercase tracking-[0.2em] text-brand-teal">{pool.badge}</span>
+                <h3 className="mt-1 font-display text-xl font-bold">{pool.name}</h3>
                 <div className="mt-3 flex flex-wrap items-center gap-3">
-                  <span className="font-mono text-xs text-brand-amber">{pool.priceLabel}</span>
+                  <span className="text-xs text-brand-amber">{pool.priceLabel}</span>
                   <Button
                     href={buildWhatsAppLink(pool.whatsappMessage)}
                     target="_blank"
@@ -118,23 +100,17 @@ export function Experiencia() {
               </div>
             </div>
 
-            <div className="relative flex h-64 flex-col justify-end overflow-hidden rounded-2xl border border-line-soft bg-surface p-6 lg:h-67.5">
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -right-8 -top-10 h-32 w-32 rounded-full bg-brand-amber opacity-20 blur-3xl"
-              />
-              <div className="relative">
-                <span className="font-mono text-xs uppercase tracking-widest text-ink-faint">
-                  {gastronomia.badge}
-                </span>
-                <h3 className="mt-1 font-display text-xl font-extrabold">{gastronomia.name}</h3>
-                <p className="mt-1 text-sm text-ink-dim">{gastronomia.tagline}</p>
-                <div className="mt-3 flex flex-wrap items-center gap-3">
-                  <span className="font-mono text-xs text-brand-amber">{gastronomia.priceLabel}</span>
-                  <Button href="#carta" variant="ghost" size="md">
-                    {gastronomia.ctaLabel}
-                  </Button>
-                </div>
+            <div className="flex h-64 flex-col justify-end border-t border-line-soft px-1 py-6 lg:h-67.5">
+              <span className="text-xs uppercase tracking-[0.2em] text-ink-faint">
+                {gastronomia.badge}
+              </span>
+              <h3 className="mt-1 font-display text-xl font-bold">{gastronomia.name}</h3>
+              <p className="mt-1 text-sm text-ink-dim">{gastronomia.tagline}</p>
+              <div className="mt-3 flex flex-wrap items-center gap-3">
+                <span className="text-xs text-brand-amber">{gastronomia.priceLabel}</span>
+                <Button href="#carta" variant="ghost" size="md">
+                  {gastronomia.ctaLabel}
+                </Button>
               </div>
             </div>
           </div>

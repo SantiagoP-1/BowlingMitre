@@ -89,22 +89,3 @@ body {
 html {
   scroll-behavior: smooth;
 }
-
-/* Resplandores ambientales del hero — recrean en CSS la luz real de neón
-   de la pista/pool hasta contar con foto o video del salón. */
-@keyframes drift {
-  from {
-    transform: translate(0, 0);
-  }
-  to {
-    transform: translate(14px, -18px);
-  }
-}
-
-.glow-orb {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(60px);
-  opacity: 0.55;
-  animation: drift 14s ease-in-out infinite alternate;
-}

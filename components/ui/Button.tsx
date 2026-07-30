@@ -23,7 +23,7 @@ type ButtonAsButton = CommonProps & {
 type Props = ButtonAsLink | ButtonAsButton;
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-extrabold transition-all duration-200 cursor-pointer whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal";
+  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors duration-200 cursor-pointer whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal";
 
 const sizes = {
   md: "px-6 py-3 text-sm",
@@ -31,10 +31,8 @@ const sizes = {
 };
 
 const variants = {
-  primary:
-    "bg-linear-to-r from-brand-red to-brand-red-deep text-white shadow-[0_10px_28px_-10px_rgba(227,28,35,0.75)] hover:brightness-110 hover:-translate-y-0.5",
-  ghost:
-    "bg-white/[0.03] text-paper border border-line hover:border-brand-teal hover:text-brand-teal",
+  primary: "bg-brand-red text-white hover:bg-brand-red-deep",
+  ghost: "text-paper border border-line hover:border-brand-teal hover:text-brand-teal",
 };
 
 export function Button(props: Props) {
