@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CategoryTabs } from "@/components/ui/CategoryTabs";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { menu } from "@/data/menu";
@@ -31,12 +30,31 @@ export function Carta() {
 
   return (
     <section id="carta" className="py-20 sm:py-28">
-      <Container>
-        <SectionHeading
-          eyebrow="Carta interactiva"
-          title="Para acompañar la partida"
-          description="Elegí una categoría. Los precios se actualizan directo desde nuestra carta."
-        />
+      <Container maxW="max-w-7xl">
+        <div className="mb-10 flex items-end justify-between gap-6 sm:mb-14">
+          <div className="flex max-w-2xl flex-col gap-3">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-brand-teal/40 bg-brand-teal/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-brand-teal">
+              Carta interactiva
+            </span>
+            <h2 className="text-balance font-display text-3xl font-extrabold leading-[1.05] tracking-tight sm:text-4xl">
+              Para acompañar la partida
+            </h2>
+            <p className="max-w-xl text-balance text-base text-ink-dim">
+              Elegí una categoría. Los precios se actualizan directo desde nuestra carta.
+            </p>
+          </div>
+
+          <div className="hidden shrink-0 flex-col items-end text-right lg:flex">
+            <span className="font-display text-7xl font-extrabold leading-none text-line">
+              {menu.length}
+            </span>
+            <span className="mt-1 font-mono text-xs uppercase tracking-widest text-ink-faint">
+              categorías,
+              <br />
+              un solo lugar
+            </span>
+          </div>
+        </div>
 
         <CategoryTabs categories={menu} activeSlug={activeSlug} onSelect={setActiveSlug} />
 

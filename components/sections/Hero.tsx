@@ -37,6 +37,23 @@ export function Hero() {
         className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-linear-to-t from-wood-deep/35 via-wood/15 to-transparent"
       />
 
+      {/* Detalle de estudio: etiqueta rotada al borde — no agrega contenido,
+          solo redistribuye lo que ya dice el badge de ubicación. */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute right-6 top-1/2 hidden -translate-y-1/2 rotate-90 whitespace-nowrap font-mono text-xs uppercase tracking-[0.3em] text-paper/35 lg:block"
+      >
+        Bowling Mitre — Balcarce
+      </span>
+
+      <a
+        href="#experiencia"
+        aria-label="Ver más, ir a la siguiente sección"
+        className="group absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 sm:flex"
+      >
+        <span className="h-10 w-px bg-linear-to-b from-transparent via-paper/40 to-transparent transition-colors group-hover:via-brand-teal" />
+      </a>
+
       <Container className="relative py-24 sm:py-28">
         <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-teal/40 bg-brand-teal/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-brand-teal">
           Balcarce, Buenos Aires
