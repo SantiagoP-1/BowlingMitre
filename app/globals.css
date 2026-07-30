@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/*
+ * Bowling Mitre — Design tokens
+ * Paleta extraída del isotipo oficial y de fotografías reales del salón
+ * (ver dossier de dirección visual, Fase 1 · Iteración 3):
+ *   - brand-red / brand-amber → degradé del isotipo
+ *   - brand-teal              → neón real del cartel "Club Mitre" en la pista
+ *   - brand-violet            → resplandor ambiental real de la sala de pool
+ *   - night / surface / wood  → pared y piso reales del salón
+ */
+:root {
+  --color-brand-red: #e31c23;
+  --color-brand-red-deep: #b4141c;
+  --color-brand-amber: #f7a600;
+  --color-brand-amber-soft: #ffd98a;
+  --color-brand-teal: #2fd9cb;
+  --color-brand-violet: #8452e8;
+
+  --color-night: #1b212c;
+  --color-night-deep: #12161d;
+  --color-night-warm: #232b39;
+  --color-surface: #252e3d;
+  --color-surface-2: #303a4c;
+
+  --color-wood: #c79256;
+  --color-wood-deep: #8c5f30;
+
+  --color-paper: #f7f3ec;
+  --color-ink-dim: #aab3c4;
+  --color-ink-faint: #67718a;
+
+  --color-line: #37415a;
+  --color-line-soft: #293246;
+}
+
+@theme inline {
+  --color-brand-red: var(--color-brand-red);
+  --color-brand-red-deep: var(--color-brand-red-deep);
+  --color-brand-amber: var(--color-brand-amber);
+  --color-brand-amber-soft: var(--color-brand-amber-soft);
+  --color-brand-teal: var(--color-brand-teal);
+  --color-brand-violet: var(--color-brand-violet);
+
+  --color-night: var(--color-night);
+  --color-night-deep: var(--color-night-deep);
+  --color-night-warm: var(--color-night-warm);
+  --color-surface: var(--color-surface);
+  --color-surface-2: var(--color-surface-2);
+
+  --color-wood: var(--color-wood);
+  --color-wood-deep: var(--color-wood-deep);
+
+  --color-paper: var(--color-paper);
+  --color-ink-dim: var(--color-ink-dim);
+  --color-ink-faint: var(--color-ink-faint);
+
+  --color-line: var(--color-line);
+  --color-line-soft: var(--color-line-soft);
+
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-poppins);
+  --font-script: var(--font-yellowtail);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+body {
+  background: var(--color-night);
+  color: var(--color-paper);
+  font-family: var(--font-sans), -apple-system, "Segoe UI", sans-serif;
+}
+
+::selection {
+  background: var(--color-brand-red);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Resplandores ambientales del hero — recrean en CSS la luz real de neón
+   de la pista/pool hasta contar con foto o video del salón. */
+@keyframes drift {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(14px, -18px);
+  }
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  opacity: 0.55;
+  animation: drift 14s ease-in-out infinite alternate;
+}
