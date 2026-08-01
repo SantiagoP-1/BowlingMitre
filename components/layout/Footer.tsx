@@ -91,7 +91,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-cream/10 px-6 py-5 text-xs text-cream/55">
-        © {new Date().getFullYear()} Bowling Mitre — González Cháves 315, Balcarce
+        © {new Date().getFullYear()} Bowling Mitre. Todos los derechos reservados.
       </div>
     </footer>
   );
