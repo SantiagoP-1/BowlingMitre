@@ -1,25 +1,21 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { WhatsAppFloatingButton } from "@/components/layout/WhatsAppFloatingButton";
-import { Hero } from "@/components/sections/Hero";
-import { Experiencia } from "@/components/sections/Experiencia";
-import { Cumpleanos } from "@/components/sections/Cumpleanos";
+import { Header } from "@/components/layout/Header";
+import { CategoryNav } from "@/components/layout/CategoryNav";
 import { Carta } from "@/components/sections/Carta";
-import { Ubicacion } from "@/components/sections/Ubicacion";
+import { Horarios } from "@/components/sections/Horarios";
+import { Eventos } from "@/components/sections/Eventos";
+import { Footer } from "@/components/layout/Footer";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <Header />
+      <CategoryNav />
       <main>
-        <Hero />
-        <Experiencia />
-        <Cumpleanos />
         <Carta />
-        <Ubicacion />
+        <Horarios />
+        <Eventos />
       </main>
       <Footer />
-      <WhatsAppFloatingButton />
     </>
   );
 }

@@ -1,77 +1,65 @@
-"use client";
-
-import { useState } from "react";
-import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { CategoryTabs } from "@/components/ui/CategoryTabs";
-import { ProductCard } from "@/components/ui/ProductCard";
 import { menu } from "@/data/menu";
-
-/** Agrupa los productos de una categoría respetando el orden de aparición de cada grupo. */
-function groupProducts(products: (typeof menu)[number]["products"]) {
-  const order: string[] = [];
-  const groups = new Map<string, typeof products>();
-
-  for (const product of products) {
-    const key = product.group ?? "";
-    if (!groups.has(key)) {
-      order.push(key);
-      groups.set(key, []);
-    }
-    groups.get(key)!.push(product);
-  }
-
-  return order.map((key) => ({ label: key, products: groups.get(key)! }));
-}
+import { formatPrice } from "@/lib/format";
 
 export function Carta() {
-  const [activeSlug, setActiveSlug] = useState(menu[0].slug);
-  const activeCategory = menu.find((category) => category.slug === activeSlug) ?? menu[0];
-  const groups = groupProducts(activeCategory.products);
-
   return (
-    <section id="carta" className="py-20 sm:py-28">
-      <Container maxW="max-w-7xl">
-        <SectionHeading
-          eyebrow="Carta"
-          title="Para acompañar la partida"
-          description={`Elegí una categoría — ${menu.length} en total, de la cerveza al postre.`}
-        />
+    <section aria-label="Carta" className="mx-auto max-w-5xl">
+      {menu.map((category, index) => {
+        const number = String(index + 1).padStart(2, "0");
+        const tinted = index % 2 === 1;
 
-        <CategoryTabs categories={menu} activeSlug={activeSlug} onSelect={setActiveSlug} />
-
-        {activeCategory.note ? (
-          <p className="mt-6 text-sm text-ink-faint">{activeCategory.note}</p>
-        ) : null}
-
-        <div className="mt-8 flex flex-col gap-10">
-          {activeCategory.products.length > 0 ? (
-            groups.map((group) => (
-              <div key={group.label || "default"}>
-                {group.label ? (
-                  <h3 className="mb-2 text-xs uppercase tracking-[0.2em] text-brand-teal">
-                    {group.label}
-                  </h3>
-                ) : null}
-                <div className="grid divide-y divide-line-soft sm:grid-cols-2 sm:gap-x-12 sm:divide-y-0">
-                  {group.products.map((product) => (
-                    <div key={product.name} className="border-line-soft sm:border-b">
-                      <ProductCard product={product} />
-                    </div>
-                  ))}
+        return (
+          <div
+            key={category.id}
+            id={category.id}
+            className={`scroll-mt-[58px] border-b border-line ${
+              tinted ? "bg-cream-soft" : ""
+            }`}
+          >
+            <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
+              <div className="grid gap-6 md:grid-cols-[13rem_1fr] md:gap-14">
+                <div className="md:sticky md:top-16 md:self-start">
+                  <span className="font-display text-6xl leading-none text-brand-red/20 sm:text-7xl">
+                    {number}
+                  </span>
+                  {category.note && (
+                    <p className="mt-4 text-[11px] font-medium uppercase tracking-[0.16em] text-brand-orange">
+                      {category.note}
+                    </p>
+                  )}
+                  <h2 className="mt-1.5 font-display text-3xl text-brand-red sm:text-4xl">
+                    {category.title}
+                  </h2>
+                  <div className="mt-4 h-[3px] w-14 rounded-full bg-gradient-to-r from-brand-red to-brand-orange" />
                 </div>
+
+                <ul className="grid content-start gap-x-14 gap-y-6 sm:grid-cols-2">
+                  {category.items.map((item) => (
+                    <li
+                      key={item.name}
+                      className="flex items-baseline justify-between gap-4"
+                    >
+                      <div className="min-w-0">
+                        <p className="text-[15px] font-medium leading-snug text-ink">
+                          {item.name}
+                        </p>
+                        {item.description && (
+                          <p className="mt-1 text-[13px] leading-snug text-ink-muted">
+                            {item.description}
+                          </p>
+                        )}
+                      </div>
+                      <p className="shrink-0 tabular-nums text-[15px] font-medium text-brand-red">
+                        {formatPrice(item.price)}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            ))
-          ) : (
-            <div className="border-t border-line-soft py-10 text-center">
-              <p className="font-display text-lg font-semibold">Próximamente</p>
-              <p className="mt-2 text-sm text-ink-dim">
-                Estamos cargando los productos de {activeCategory.name.toLowerCase()}.
-              </p>
             </div>
-          )}
-        </div>
-      </Container>
+          </div>
+        );
+      })}
     </section>
   );
 }

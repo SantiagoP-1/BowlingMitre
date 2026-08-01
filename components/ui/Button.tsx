@@ -1,58 +1,27 @@
-import type { ReactNode } from "react";
+import { ReactNode } from "react";
 
-type CommonProps = {
-  variant?: "primary" | "ghost";
-  size?: "md" | "lg";
-  icon?: ReactNode;
-  className?: string;
-  children: ReactNode;
-};
-
-type ButtonAsLink = CommonProps & {
+type ButtonProps = {
   href: string;
-  target?: string;
-  rel?: string;
+  children: ReactNode;
+  variant?: "solid" | "outline";
+  icon?: ReactNode;
 };
 
-type ButtonAsButton = CommonProps & {
-  href?: undefined;
-  onClick?: () => void;
-  type?: "button" | "submit";
-};
+export function Button({ href, children, variant = "solid", icon }: ButtonProps) {
+  const base =
+    "inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors duration-150";
+  const solid = "bg-brand-red text-cream hover:bg-[#9c2818]";
+  const outline = "border border-cream/40 text-cream hover:border-cream/80";
 
-type Props = ButtonAsLink | ButtonAsButton;
-
-const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors duration-200 cursor-pointer whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal";
-
-const sizes = {
-  md: "px-6 py-3 text-sm",
-  lg: "px-7 py-4 text-base",
-};
-
-const variants = {
-  primary: "bg-brand-red text-white hover:bg-brand-red-deep",
-  ghost: "text-paper border border-line hover:border-brand-teal hover:text-brand-teal",
-};
-
-export function Button(props: Props) {
-  const { variant = "primary", size = "md", icon, className = "", children } = props;
-  const classes = `${base} ${sizes[size]} ${variants[variant]} ${className}`;
-
-  if ("href" in props && props.href) {
-    return (
-      <a href={props.href} target={props.target} rel={props.rel} className={classes}>
-        {icon}
-        {children}
-      </a>
-    );
-  }
-
-  const buttonProps = props as ButtonAsButton;
   return (
-    <button type={buttonProps.type ?? "button"} onClick={buttonProps.onClick} className={classes}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${base} ${variant === "solid" ? solid : outline}`}
+    >
       {icon}
       {children}
-    </button>
+    </a>
   );
 }

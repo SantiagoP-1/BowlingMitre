@@ -1,9 +1,10 @@
-const currencyFormatter = new Intl.NumberFormat("es-AR", {
+const priceFormatter = new Intl.NumberFormat("es-AR", {
   style: "currency",
   currency: "ARS",
   maximumFractionDigits: 0,
 });
 
-export function formatPrice(value: number): string {
-  return currencyFormatter.format(value);
+export function formatPrice(price: number | null): string {
+  if (price === null) return "Consultar";
+  return priceFormatter.format(price);
 }

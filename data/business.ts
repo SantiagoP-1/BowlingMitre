@@ -1,49 +1,37 @@
-/**
- * Datos comerciales de Bowling Mitre.
- *
- * IMPORTANTE — corrección: la Fase 1 había tomado por error la dirección
- * de otro negocio con nombre parecido ("Av. Mitre 426, Quilmes"), hallado
- * en un directorio externo. El cliente compartió el pin real de Google
- * Maps de su local ("Pizzería Bowling / pool mitre"), que ubica el
- * negocio en Balcarce, no en Quilmes. La dirección de abajo sale de
- * geocodificar ese pin — confirmar el número de puerta exacto.
- *
- * `confirmed: false` = todavía no lo tipeó el cliente textualmente,
- * aunque la fuente (su propio pin de Maps / su propio Instagram) es
- * confiable.
- */
+export type DayHours = {
+  day: string;
+  hours: string;
+  closed?: boolean;
+};
 
 export const business = {
   name: "Bowling Mitre",
   shortName: "Bowling Mitre",
-
-  address: {
-    value: "Av. Gonzáles Cháves 315, Balcarce, Buenos Aires (B7620)",
-    confirmed: false,
+  tagline: "Bowling, pool y pizzería en Balcarce",
+  description:
+    "4 canchas de bowling, 7 mesas de pool, metegol y tejo. Pizzas, hamburguesas, cervezas y tragos para pasarla bien con amigos.",
+  address: "González Cháves 315, Balcarce",
+  mapsUrl:
+    "https://www.google.com/maps/place/Pizzer%C3%ADa+Bowling+%2F+pool+mitre/@-37.8422926,-58.2498599,17z",
+  whatsapp: {
+    display: "+54 2262 46-7395",
+    href: "https://wa.me/542262467395",
   },
-
-  phone: {
-    value: "+54 2262 46-7395",
-    // Tomado directo de la bio de Instagram (@bowlingmitre).
-    whatsapp: "542262467395",
-    confirmed: true,
+  instagram: {
+    display: "@bowlingmitre",
+    href: "https://www.instagram.com/bowlingmitre",
   },
-
-  hours: {
-    // Pendiente: no figura en Instagram ni en el sitio actual.
-    value: null as string | null,
-    confirmed: false,
+  facebook: {
+    display: "Facebook",
+    href: "https://www.facebook.com/gimnasia.bowling",
   },
-
-  social: {
-    instagram: "https://www.instagram.com/bowlingmitre/",
-    facebook: null as string | null,
-  },
-
-  /** Link para "Cómo llegar" — comparte el pin exacto del negocio. */
-  mapsUrl: "https://maps.app.goo.gl/xhCPUtZ1qQn8R1Va6",
-
-  /** Embed provisto por el cliente, ya apuntando al pin real del local. */
-  mapsEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d331.1836261595492!2d-58.249937521402295!3d-37.842330935634976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959aaf8e5764b88b%3A0x539a0f31bc795f4!2sPizzer%C3%ADa%20Bowling%20%2F%20pool%20mitre!5e0!3m2!1ses-419!2sar!4v1785424102206!5m2!1ses-419!2sar",
-} as const;
+  hours: [
+    { day: "Lunes", hours: "19:00 – 02:00" },
+    { day: "Martes", hours: "Cerrado", closed: true },
+    { day: "Miércoles", hours: "19:00 – 01:30" },
+    { day: "Jueves", hours: "19:00 – 02:00" },
+    { day: "Viernes", hours: "19:00 – 03:00" },
+    { day: "Sábado", hours: "19:00 – 03:30" },
+    { day: "Domingo", hours: "19:00 – 02:30" },
+  ] satisfies DayHours[],
+};

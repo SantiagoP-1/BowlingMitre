@@ -1,58 +1,27 @@
 import type { Metadata } from "next";
-import { Poppins, Manrope, JetBrains_Mono, Yellowtail } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
+import { business } from "@/data/business";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  display: "swap",
+  variable: "--font-fraunces",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
+  variable: "--font-inter",
 });
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["500", "700"],
-  display: "swap",
-});
-
-const yellowtail = Yellowtail({
-  variable: "--font-yellowtail",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
-
-const title = "Bowling Mitre — Bowling, pool y gastronomía en Quilmes";
-const description =
-  "Bowling, pool, metegol y gastronomía en un solo lugar. Reservá tu pista o consultá por cumpleaños y eventos directamente por WhatsApp.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
-  title,
-  description,
+  title: `${business.name} — Carta`,
+  description: business.description,
   openGraph: {
-    title,
-    description,
-    locale: "es_AR",
-    type: "website",
+    title: `${business.name} — Carta`,
+    description: business.description,
   },
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description,
-  },
-};
-
-export const viewport = {
-  themeColor: "#1B212C",
 };
 
 export default function RootLayout({
@@ -62,11 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body
-        className={`${poppins.variable} ${manrope.variable} ${jetbrainsMono.variable} ${yellowtail.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${fraunces.variable} ${inter.variable}`}>{children}</body>
     </html>
   );
 }
