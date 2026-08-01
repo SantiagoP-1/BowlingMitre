@@ -22,7 +22,7 @@ export function CategoryNav() {
   }, [activeId]);
 
   return (
-    <nav className="sticky top-0 z-40 border-b border-line bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/90">
+    <nav className="sticky top-0 z-40 border-b border-line bg-cream/95 backdrop-blur supports-backdrop-filter:bg-cream/90">
       <div className="mx-auto max-w-5xl px-4">
         <ul
           ref={listRef}

@@ -10,14 +10,14 @@ const WHATSAPP_EVENTOS_HREF = `${business.whatsapp.href}?text=${encodeURICompone
 
 export function Eventos() {
   return (
-    <section id="eventos" className="scroll-mt-[58px] border-b border-line bg-cream">
+    <section id="eventos" className="scroll-mt-14.5 border-b border-line bg-cream">
       <div className="mx-auto max-w-5xl px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-lg text-center">
           <h2 className="font-display text-4xl text-brand-red sm:text-5xl">
             Eventos
           </h2>
           <p className="mt-4 text-[15px] leading-relaxed text-ink-muted">
-            Organizamos cumpleaños con pizza libre, bowling y pool
+            Organizamos cumpleaños y eventos con pizza libre, bowling y pool
             incluidos.
           </p>
         </div>

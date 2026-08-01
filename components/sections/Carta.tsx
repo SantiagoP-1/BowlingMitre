@@ -12,7 +12,7 @@ export function Carta() {
           <div
             key={category.id}
             id={category.id}
-            className={`scroll-mt-[58px] border-b border-line ${
+            className={`scroll-mt-14.5 border-b border-line ${
               tinted ? "bg-cream-soft" : ""
             }`}
           >
@@ -30,7 +30,7 @@ export function Carta() {
                   <h2 className="mt-1.5 font-display text-3xl text-brand-red sm:text-4xl">
                     {category.title}
                   </h2>
-                  <div className="mt-4 h-[3px] w-14 rounded-full bg-gradient-to-r from-brand-red to-brand-orange" />
+                  <div className="mt-4 h-0.75 w-14 rounded-full bg-linear-to-r from-brand-red to-brand-orange" />
                 </div>
 
                 <ul className="grid content-start gap-x-14 gap-y-6 sm:grid-cols-2">

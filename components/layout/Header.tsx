@@ -15,8 +15,8 @@ export function Header() {
           sizes="100vw"
           className="object-cover opacity-80"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-charcoal via-charcoal/70 to-charcoal/30" />
+        <div className="absolute inset-0 bg-linear-to-r from-charcoal/90 via-charcoal/40 to-transparent" />
       </div>
 
       <div className="relative mx-auto flex max-w-5xl flex-col items-start gap-6 px-6 py-16 sm:py-20 md:py-24">

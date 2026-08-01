@@ -1,11 +1,11 @@
 import { business } from "@/data/business";
-import { currentDayName } from "@/lib/hours";
+import { getActiveDay } from "@/lib/hours";
 
 export function Horarios() {
-  const today = currentDayName();
+  const today = getActiveDay(business.hours);
 
   return (
-    <section id="horarios" className="scroll-mt-[58px] border-b border-line bg-cream">
+    <section id="horarios" className="scroll-mt-14.5 border-b border-line bg-cream">
       <div className="mx-auto max-w-5xl px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-lg text-center">
           <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-brand-orange">
