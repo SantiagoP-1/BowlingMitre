@@ -1,5 +1,5 @@
 import { business } from "@/data/business";
-import { events, eventsNote } from "@/data/events";
+import { events } from "@/data/events";
 import { formatPrice } from "@/lib/format";
 import { Button } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/Icons";
@@ -13,15 +13,12 @@ export function Eventos() {
     <section id="eventos" className="scroll-mt-[58px] border-b border-line bg-cream">
       <div className="mx-auto max-w-5xl px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-lg text-center">
-          <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-brand-orange">
-            {eventsNote}
-          </p>
-          <h2 className="mt-2 font-display text-4xl text-brand-red sm:text-5xl">
+          <h2 className="font-display text-4xl text-brand-red sm:text-5xl">
             Eventos
           </h2>
           <p className="mt-4 text-[15px] leading-relaxed text-ink-muted">
-            Organizamos cumpleaños y eventos privados con pizza libre,
-            bowling y pool incluidos.
+            Organizamos cumpleaños con pizza libre, bowling y pool
+            incluidos.
           </p>
         </div>
 
