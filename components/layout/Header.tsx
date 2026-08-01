@@ -8,10 +8,11 @@ export function Header() {
     <header className="relative isolate overflow-hidden bg-charcoal">
       <div className="absolute inset-0">
         <Image
-          src="/images/banner.png"
+          src="/images/banner.jpg"
           alt="Salón de Bowling Mitre"
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover opacity-80"
         />
@@ -20,13 +21,15 @@ export function Header() {
       </div>
 
       <div className="relative mx-auto flex max-w-5xl flex-col items-start gap-6 px-6 py-16 sm:py-20 md:py-24">
+        <h1 className="sr-only">{`${business.name} — Carta`}</h1>
+
         <Image
           src="/images/logo1.png"
           alt="Bowling Mitre"
           width={783}
           height={758}
+          sizes="160px"
           className="h-32 w-auto sm:h-40"
-          priority
         />
 
         <p className="max-w-md text-balance text-[15px] leading-relaxed text-cream/80 sm:text-base">

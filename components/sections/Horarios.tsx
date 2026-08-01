@@ -8,7 +8,7 @@ export function Horarios() {
     <section id="horarios" className="scroll-mt-14.5 border-b border-line bg-cream">
       <div className="mx-auto max-w-5xl px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-lg text-center">
-          <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-brand-orange">
+          <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-brand-orange-text">
             Cuándo encontrarnos
           </p>
           <h2 className="mt-2 font-display text-4xl text-brand-red sm:text-5xl">
@@ -33,7 +33,7 @@ export function Horarios() {
               >
                 <p
                   className={`text-[11px] font-medium uppercase tracking-wide ${
-                    isToday ? "text-cream/75" : "text-ink-muted"
+                    isToday ? "text-cream/90" : "text-ink-muted"
                   }`}
                 >
                   {h.day}
@@ -50,7 +50,7 @@ export function Horarios() {
                   {h.hours}
                 </p>
                 {isToday && (
-                  <p className="mt-1.5 text-[10px] font-medium uppercase tracking-wide text-cream/75">
+                  <p className="mt-1.5 text-[10px] font-medium uppercase tracking-wide text-cream/90">
                     Hoy
                   </p>
                 )}

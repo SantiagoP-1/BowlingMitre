@@ -10,7 +10,9 @@ export const business = {
   tagline: "Bowling, pool y pizzería en Balcarce",
   description:
     "4 canchas de bowling, 7 mesas de pool, metegol y tejo. Pizzas, hamburguesas, cervezas y tragos para pasarla bien con amigos.",
+  siteUrl: "https://bowlingmitre.com",
   address: "González Cháves 315, Balcarce",
+  geo: { latitude: -37.8422926, longitude: -58.2498599 },
   mapsUrl:
     "https://www.google.com/maps/place/Pizzer%C3%ADa+Bowling+%2F+pool+mitre/@-37.8422926,-58.2498599,17z",
   whatsapp: {

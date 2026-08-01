@@ -8,9 +8,15 @@ import { Footer } from "@/components/layout/Footer";
 export default function Home() {
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-brand-red focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-cream"
+      >
+        Saltar al contenido
+      </a>
       <Header />
       <CategoryNav />
-      <main>
+      <main id="main-content">
         <Carta />
         <Horarios />
         <Eventos />

@@ -19,11 +19,14 @@ export function Carta() {
             <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
               <div className="grid gap-6 md:grid-cols-[13rem_1fr] md:gap-14">
                 <div className="md:sticky md:top-16 md:self-start">
-                  <span className="font-display text-6xl leading-none text-brand-red/20 sm:text-7xl">
+                  <span
+                    aria-hidden="true"
+                    className="font-display text-6xl leading-none text-brand-red/70 sm:text-7xl"
+                  >
                     {number}
                   </span>
                   {category.note && (
-                    <p className="mt-4 text-[11px] font-medium uppercase tracking-[0.16em] text-brand-orange">
+                    <p className="mt-4 text-[11px] font-medium uppercase tracking-[0.16em] text-brand-orange-text">
                       {category.note}
                     </p>
                   )}

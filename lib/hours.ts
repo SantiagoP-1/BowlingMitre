@@ -32,10 +32,6 @@ function parseRange(hours: DayHours) {
   return { open: parseMinutes(openStr), close: parseMinutes(closeStr) };
 }
 
-export function currentDayName() {
-  return getBuenosAiresNow().weekday;
-}
-
 /**
  * Which day's card should read as "today". A night that runs past midnight
  * (e.g. Viernes 19:00–03:00) still belongs to Viernes until it actually

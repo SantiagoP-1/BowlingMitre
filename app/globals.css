@@ -7,12 +7,12 @@
   --color-cream: #faf6ef;
   --color-cream-soft: #f2ead9;
   --color-ink: #241f1b;
-  --color-ink-muted: #7a6f63;
+  --color-ink-muted: #6f6458;
   --color-line: #e3d8c8;
   --color-brand-red: #b8321f;
   --color-brand-orange: #d98a2b;
+  --color-brand-orange-text: #96580e;
   --color-charcoal: #1b1714;
-  --color-charcoal-soft: #2a2420;
 }
 
 html {
